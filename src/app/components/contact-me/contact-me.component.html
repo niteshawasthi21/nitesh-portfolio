@@ -1,0 +1,75 @@
+<section
+  id="contact"
+  class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-100"
+>
+  <div class="px-4 md:px-6">
+    <div
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <div class="space-y-2">
+        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          Contact Me
+        </h2>
+        <p
+          class="mx-auto max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+        >
+          Feel free to reach out to me for any inquiries or collaboration
+          opportunities.
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto w-full max-w-md mt-8">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <div class="space-y-1">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="name"
+            >Name</label
+          >
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            formControlName="name"
+            id="name"
+            placeholder="John Doe"
+            required=""
+          />
+        </div>
+        <div class="space-y-1">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="email"
+            >Email</label
+          >
+          <input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            formControlName="email"
+            id="email"
+            placeholder="john@example.com"
+            required=""
+            type="email"
+          />
+        </div>
+        <div class="space-y-1">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="message"
+            >Message</label
+          >
+          <textarea
+            class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="message"
+            formControlName="message"
+            placeholder="Your message..."
+            required=""
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded transition-colors duration-300"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

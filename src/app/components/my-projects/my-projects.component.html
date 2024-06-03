@@ -1,0 +1,63 @@
+<section
+  id="projects"
+  class="w-full py-5 md:py-10 lg:py-10 bg-gray-100 flex-col items-center"
+>
+  <div class="w-full">
+    <div
+      class="flex flex-col items-center justify-center space-y-4 text-center"
+    >
+      <h2
+        class="text-3xl font-bold text-gray-800 mb-8 text-center position-relative"
+      >
+        <span class="heading-background" style="background-color: #cfe8fc;">
+          <i class="fas fa-briefcase mr-2"></i> My Projects
+        </span>
+      </h2>
+    </div>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4 justify-items-center"
+    >
+      <div
+        *ngFor="let project of projectData"
+        class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 w-full max-w-xs"
+      >
+        <div class="relative w-full h-36 mb-4">
+          <img
+            src="https://rb.gy/y0yfak"
+            alt="project_image"
+            class="w-full h-full object-cover rounded-lg"
+          />
+          <div class="absolute inset-0 flex justify-end m-2">
+            <div
+              (click)="openSourceCode(project.source_code_link)"
+              class="bg-black bg-opacity-50 hover:bg-opacity-75 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
+            >
+              <img
+                src="https://rb.gy/jig1q5"
+                alt="source code"
+                class="w-4 h-4"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-gray-900 dark:text-white font-bold text-lg mb-2">
+            {{ project.name }}
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+            {{ project.description }}
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span
+            *ngFor="let tag of project.tags"
+            [ngClass]="tag.color"
+            class="text-sm font-semibold"
+          >
+            #{{ tag.name }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

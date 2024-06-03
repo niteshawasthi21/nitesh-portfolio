@@ -1,0 +1,69 @@
+<section class="w-full">
+  <div class="bg-gradient-to-r from-blue-500 to-skyblue-500 py-8">
+    <h3
+      class="text-4xl md:text-5xl font-bold tracking-wide text-center text-white animate-bounce"
+    >
+      <i class="fas fa-check-square text-yellow-400 mr-3"></i>Proficiency
+    </h3>
+  </div>
+
+  <div class="flex relative">
+    <!-- Technical Skills -->
+    <div class="w-full bg-gray-100 p-5 relative z-10">
+      <h4
+        class="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent"
+      >
+        <i class="fas fa-laptop-code mr-2"></i>Technical Skills
+      </h4>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center"
+      >
+        <div class="my-1 w-full" *ngFor="let skills of technicalSkills">
+          <article
+            class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl hover:border-black border-2 border-transparent transition duration-300"
+          >
+            <header class="flex items-center justify-between p-2 md:p-4">
+              <h1 class="text-lg text-wrap font-bold">{{ skills.title }}</h1>
+            </header>
+            <footer class="grid grid-cols-1 md:grid-cols-2 p-2 gap-3">
+              <div
+                class="flex items-center text-black"
+                *ngFor="let tech of skills.technicalSkills"
+              >
+                <i [class]="tech.icon" [style]="tech.style"></i>
+                <p
+                  class="ml-2 text-sm md:text-base font-medium text-gray-800 hover:text-blue-600 transition-colors"
+                >
+                  {{ tech.tech }}
+                </p>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="w-full md:w-2/6 bg-gray-100 p-5 relative z-10">
+      <h4
+        class="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent"
+      >
+        <i class="fas fa-award mr-2"></i>Soft Skills
+      </h4>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 justify-center"
+      >
+        <article
+          *ngFor="let soft of softSkills"
+          class="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl hover:border-black border-2 border-transparent transition duration-300"
+        >
+          <header class="flex items-center justify-between p-2 md:p-4">
+            <h1 class="text-sm text-wrap md:text-base font-bold">
+              {{ soft.title }}
+            </h1>
+          </header>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

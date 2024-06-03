@@ -1,0 +1,25 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.timeline-item-content {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item-content h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.timeline-item-content p {
+  margin-bottom: 5px;
+}

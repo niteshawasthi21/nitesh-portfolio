@@ -1,0 +1,62 @@
+/* Add application styles & imports to this file! */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.heading-background {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  background: linear-gradient(
+    90deg,
+    #45a0e6,
+    #87ceeb,
+    #6495ed,
+    #4682b4,
+    #56b3fa
+  );
+  background-size: 600% 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.heading-background::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    #45a0e6,
+    #87ceeb,
+    #6495ed,
+    #4682b4,
+    #56b3fa
+  );
+  background-size: 600% 100%;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.heading-background:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
