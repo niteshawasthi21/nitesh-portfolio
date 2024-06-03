@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "predeploy": "npm run build && cp dist/nitesh-portfolio/index.html dist/nitesh-portfolio/404.html && touch dist/nitesh-portfolio/.nojekyll",
+    "deploy": "gh-pages -d dist/nitesh-portfolio"
   },
   "dependencies": {
     "@angular/animations": "^17.2.0",
