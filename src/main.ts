@@ -12,7 +12,7 @@ import { DashBoardComponent } from './app/dash-board/dash-board.component';
   `,
 })
 export class App {
-  name = 'Angular';
+  name = 'Nitesh Awasthi';
 }
 
 bootstrapApplication(App);
