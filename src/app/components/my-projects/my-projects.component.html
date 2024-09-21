@@ -1,11 +1,11 @@
 <section
   id="projects"
-  class="w-full py-5 md:py-5 lg:py-10 bg-gray-100 flex-col items-center relative overflow-hidden"
+  class="w-full py-5 md:py-5 lg:py-10 bg-gray-900 flex-col items-center relative overflow-hidden"
 >
   <!-- Background Overlay -->
   <div class="absolute inset-0 -z-10">
     <div
-      class="w-full h-full bg-gradient-to-r from-blue-300 to-blue-500 opacity-50"
+      class="w-full h-full bg-gradient-to-r from-blue-900 to-blue-600 opacity-50"
     ></div>
   </div>
 
@@ -14,12 +14,12 @@
     <div
       class="flex flex-col items-center justify-center space-y-4 text-center"
     >
-      <h2 class="text-3xl font-bold text-gray-800 mb-8">
+      <h2 class="text-3xl font-bold text-white mb-8">
         <span
           class="heading-background p-2 rounded-lg"
-          style="background-color: #ffffff"
+           
         >
-          <i class="fas fa-briefcase mr-2"></i> My Projects
+          <i class="fas fa-briefcase mr-2"></i> Personal-Projects
         </span>
       </h2>
     </div>
@@ -29,7 +29,7 @@
     >
       <div
         *ngFor="let project of projectData"
-        class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full max-w-sm overflow-hidden transform hover:scale-105"
+        class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 w-full max-w-sm overflow-hidden transform hover:scale-105"
       >
         <div class="relative w-full h-32 mb-4">
           <img
@@ -41,24 +41,31 @@
             <div
               class="bg-black bg-opacity-50 hover:bg-opacity-75 w-8 h-8 rounded-full flex justify-center items-center cursor-pointer"
             >
-              <img src="assets/Images/nitesh.png" alt="source code" class="w-4 h-4" />
+              <img
+                src="assets/Images/nitesh.png"
+                alt="source code"
+                class="w-4 h-4"
+              />
             </div>
           </div>
         </div>
         <div>
-          <h3 class="text-gray-900 float-left font-bold text-lg mb-2">
+          <h3 class="text-white float-left font-bold text-lg mb-2">
             {{ project.name }}
           </h3>
           <a
-  [href]="project.live"
-  target="_blank"
-  class="inline-flex  float-right items-center justify-center h-9 px-4 py-2 text-sm font-medium text-teal-900 bg-white rounded-md shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:bg-teal-100 focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:pointer-events-none disabled:opacity-50 group relative"
->
-  <i class="fa-solid animate-bounce fa-globe mr-2 transition-transform duration-300 ease-in-out group-hover:rotate-360"></i> Live
-</a>
+            [href]="project.live"
+            target="_blank"
+            class="inline-flex float-right items-center justify-center h-9 px-4 py-2 text-sm font-medium text-teal-900 bg-white rounded-md shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          >
+            <i
+              class="fa-solid animate-bounce fa-globe mr-2 transition-transform duration-300 ease-in-out group-hover:rotate-360"
+            ></i>
+            Live
+          </a>
 
           <div style="float: none; clear: both;"></div>
-          <p class="text-gray-600 text-sm mb-4">
+          <p class="text-gray-400 text-sm mb-4">
             {{ project.description }}
           </p>
         </div>
@@ -66,7 +73,7 @@
           <span
             *ngFor="let tag of project.tags"
             [ngClass]="tag.color"
-            class="text-sm font-semibold"
+            class="text-sm font-semibold text-gray-400"
           >
             #{{ tag.name }}
           </span>
