@@ -36,16 +36,16 @@ export const PROJECTS = [
     live: 'https://btc-calculator-rho.vercel.app/',
   },
   {
-    name: 'Trip Guide',
+    name: 'Simple Calulator',
     description:
-      'A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.',
+      ' The Responsive Calculator App is a sleek, mobile-first web-based calculator featuring essential arithmetic operations. It includes buttons for digits, decimal points, and operators, allowing users to perform addition, subtraction, multiplication, and division.      ',
     tags: [
-      { name: 'nextjs', color: 'blue-text-gradient' },
-      { name: 'supabase', color: 'green-text-gradient' },
-      { name: 'css', color: 'pink-text-gradient' },
+      { name: 'Angular', color: 'blue-text-gradient' },
+      { name: 'HTNL&CSS', color: 'green-text-gradient' },
+      { name: 'TypeScript', color: 'pink-text-gradient' },
     ],
-    image: 'assets/Images/nitesh.png',
-    live: 'https://github.com/',
+    image: 'assets/projectImg/calcy.png',
+    live: 'https://calcysimple.vercel.app/',
   },
   {
     name: 'Car Rent',
