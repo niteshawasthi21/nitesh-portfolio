@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, Renderer2 } from "@angular/core";
 
 @Component({
   selector: "app-header",
@@ -8,81 +8,62 @@ import { Component, HostListener, OnInit, Renderer2 } from "@angular/core";
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent implements OnInit {
-  // image:string=''
+  // Rotating career titles for typewriter animation
   careers: string[] = [
-    "Software Developer",
-    "Web Developer",
-    "FrontEnd Developer",
     "Angular Developer",
+    "Frontend Developer",
+    "Web Developer",
+    "Software Engineer",
   ];
 
   careerIndex: number = 0;
   charIndex: number = 0;
   displayText: string = "";
 
-  experienceYears: number=0;
+  // Experience counter (auto-calculated)
+  experienceYears: number = 0;
+
+  // Professional summary (for binding or displaying dynamically)
+  professionalSummary: string = `
+    Results-driven Angular Developer with 3.5+ years of experience building scalable, high-performance web applications. 
+    Proven track record of reducing operational costs by 80% through innovative solutions and delivering reusable component 
+    architectures that improve development efficiency by 40%. Expert in Angular, TypeScript, and modern frontend technologies 
+    with hands-on exposure to Node.js backend development. Recognized for rapid learning and exceptional problem-solving 
+    abilities, winning "Newbie Award" for outstanding early contributions.
+  `;
 
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.animateText();
-    this.calculateExperience()
+    this.calculateExperience();
   }
 
+  /**
+   * Typewriter animation effect for rotating career titles.
+   */
   animateText(): void {
-    this.charIndex++;
+    const currentCareer = this.careers[this.careerIndex];
+    this.displayText = currentCareer.slice(0, ++this.charIndex);
 
-    this.displayText = `${this.careers[this.careerIndex].slice(
-      0,
-      this.charIndex
-    )}`;
-
-    if (this.charIndex === this.careers[this.careerIndex].length) {
+    // When the current title finishes, move to the next one
+    if (this.charIndex === currentCareer.length) {
       this.careerIndex = (this.careerIndex + 1) % this.careers.length;
       this.charIndex = 0;
+      setTimeout(() => this.animateText(), 800); // brief pause before next title
+    } else {
+      setTimeout(() => this.animateText(), 120); // typing speed
     }
-    setTimeout(() => this.animateText(), 400);
   }
 
+  /**
+   * Calculates years of experience dynamically from a given start date.
+   */
   calculateExperience(): void {
-    const startDate = new Date('2022-01-10');  
-    const currentDate = new Date();  
-    const diffInMs = currentDate.getTime() - startDate.getTime();    
-    const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);    
+    const startDate = new Date("2022-01-10");
+    const currentDate = new Date();
+    const diffInMs = currentDate.getTime() - startDate.getTime();
+    const diffInYears = diffInMs / (1000 * 60 * 60 * 24 * 365.25);
     this.experienceYears = parseFloat(diffInYears.toFixed(1));
   }
-
-  // @HostListener('mousemove', ['$event'])
-  // onMouseMove(event: MouseEvent): void {
-  //   const xPosition = event.offsetX;
-  //   const yPosition = event.offsetY;
-  //   const spanElmnt = this.renderer.createElement('span');
-  
-  //   const imageUrls = ['assets/Images/nitesh.png'];
-  //   const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)]
-    
-  //   // Directly set the background using the image URL
-  //   this.renderer.setStyle(spanElmnt, 'background', `url('${randomImageUrl}')`);
-  //   this.renderer.setStyle(spanElmnt, 'background-size', 'cover');
-  
-  //   this.renderer.setStyle(spanElmnt, 'left', `${xPosition}px`);
-  //   this.renderer.setStyle(spanElmnt, 'top', `${yPosition}px`);
-  
-  //   const size = Math.random() * 100;
-  //   this.renderer.setStyle(spanElmnt, 'width', `${size}px`);
-  //   this.renderer.setStyle(spanElmnt, 'height', `${size}px`);
-  
-  //   this.renderer.setStyle(spanElmnt, 'filter', `sepia(100%) saturate(100%) hue-rotate(${Math.random() * 360}deg) brightness(100%) contrast(100%)`);
-  //   this.renderer.addClass(spanElmnt, 'effect-span');
-  
-  //   const bodyElmnt = this.renderer.selectRootElement('body', true);
-  //   this.renderer.appendChild(bodyElmnt, spanElmnt);
-  
-  //   setTimeout(() => {
-  //     this.renderer.removeChild(bodyElmnt, spanElmnt);
-  //   }, 3000);
-
-  //   console.log()
-  // }
-
 }

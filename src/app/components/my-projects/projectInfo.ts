@@ -9,6 +9,8 @@ export class Project {
   achievements?: string;
   date?: string;
   url?: string;
+  sourceCode?: string;
+
 }
 
 export const PROJECTS = [

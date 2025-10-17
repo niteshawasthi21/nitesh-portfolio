@@ -1,41 +1,67 @@
-<section class="w-full p-5 bg-gray-900">
-  <h2
-    class="text-3xl font-bold text-white mb-8 text-center position-relative"
-  >
-    <span class="heading-background">
-      <i class="fas fa-briefcase mr-2"></i> Work Experience
-    </span>
-  </h2>
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 justify-items-center"
-  >
-    <div
-      class="rounded-lg bg-gray-800 p-6 shadow-md w-full md:w-auto"
-      *ngFor="let work of workExperiences"
-    >
-      <img
-        [src]="work.image"
-        class="w-12 h-12 rounded-full mr-4 float-right border border-gray-500 p-1"
-        alt="Company Logo"
-      />
-      <h3 class="text-xl font-bold text-white animate-bounce">
-        <i class="fas fa-building mr-2"></i>{{ work.company }}
-      </h3>
-      <p class="text-sm text-gray-300">
-        <i class="fas fa-briefcase mr-1"></i>{{ work.position }}
-      </p>
-      <p class="text-sm text-gray-300">
-        <i class="far fa-calendar-alt mr-1"></i>{{ work.duration }}
-      </p>
-      <ul
-        class="mt-4 text-gray-400 space-y-2"
-        *ngFor="let description of work.description"
-      >
-        <li>
-          <i class="fas fa-check-circle text-green-400 mr-2"></i
-          >{{ description }}
-        </li>
-      </ul>
+<section class="w-full py-16 px-5 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-500 bg-opacity-10 rounded-full mb-4">
+        <i class="fas fa-briefcase text-3xl text-blue-400"></i>
+      </div>
+      <h2 class="text-4xl font-bold text-white mb-3">
+        Work Experience
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
     </div>
+
+
+
+
+    <section class="timeline-container">
+      <div class="timeline-line"></div>
+      <div *ngFor="let work of workExperiences; let i = index" class="timeline-item" [class.left]="i % 2 === 0"
+        [class.right]="i % 2 !== 0">
+        <div class="content">
+          <div class="flex items-start justify-between mb-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <i class="fas fa-building text-blue-400"></i>
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                  {{ work.company }}
+                </h3>
+              </div>
+              <p class="text-blue-300 font-medium text-sm mb-1">
+                {{ work.position }}
+              </p>
+              <div class="flex items-center gap-2 text-gray-400 text-sm">
+                <i class="far fa-calendar-alt"></i>
+                <span>{{ work.duration }}</span>
+              </div>
+            </div>
+            <div class="flex-shrink-0 ml-4">
+              <img [src]="work.image"
+                class="w-14 h-14 rounded-xl object-cover border-2 border-gray-700 group-hover:border-blue-500 transition-colors duration-300 shadow-lg"
+                [alt]="work.company + ' logo'" />
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-4"></div>
+
+          <ul class="space-y-3">
+            <li *ngFor="let desc of work.description; let j = index" [class.collapsed]="!expandedStates[i] && j >= 3"
+              class="leading-relaxed">
+              <span>{{ desc }}</span>
+            </li>
+          </ul>
+
+          <button *ngIf="work.description.length > 3" (click)="toggleDescription(i)"
+            class="text-blue-500 hover:underline mt-2">
+            {{ expandedStates[i] ? 'Show Less' : 'Show More' }}
+          </button>
+
+        </div>
+        <div class="circle"></div>
+      </div>
+    </section>
+
+
   </div>
 </section>

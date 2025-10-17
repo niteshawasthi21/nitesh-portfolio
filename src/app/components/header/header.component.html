@@ -1,121 +1,131 @@
-<main class="flex flex-col">
-  <header class="bg-gray-900 text-white py-2.5">
-    <div class="container mx-auto">
-      <div class="flex items-center justify-between">
-        <div>
-          <img
-            src="assets/Images/nitesh.png"
-            alt="Logo"
-            class="h-12 mr-4 object-cover rounded-full"
-          />
-        </div>
-        <div>
-          <ul class="flex space-x-4">
-            <li>
-              <a
-                href="https://www.linkedin.com/in/niteshawasthi21"
-                target="_blank"
-                class="hover:text-blue-400 text-blue-300 transition-colors duration-300"
-                ><i class="fa-brands fa-linkedin fa-2xl"></i
-              ></a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/niteshawasthi21"
-                target="_blank"
-                class="hover:text-gray-400 transition-colors duration-300"
-                ><i class="fa-brands fa-square-github fa-2xl"></i
-              ></a>
-            </li>
-            <li>
-              <a
-                href="mailto:tonyawasthi8586@gmail.com"
-                class="hover:text-orange-400 text-orange-300 transition-colors duration-300"
-                ><i class="fas fa-envelope fa-2xl"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
+<main class="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 relative overflow-hidden">
+  <!-- Floating Background Orbs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-20 left-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-10 w-[30rem] h-[30rem] bg-cyan-400/10 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-40 left-1/4 w-[25rem] h-[25rem] bg-orange-400/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="z-20 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <!-- Logo and Name -->
+      <div class="flex items-center space-x-3">
+        <img
+          src="assets/Images/nitesh.png"
+          alt="Logo"
+          class="h-12 w-12 rounded-full object-cover ring-2 ring-teal-500 shadow-lg"
+        />
+        <h1 class="text-xl font-semibold text-white tracking-wide">Nitesh Awasthi</h1>
       </div>
+
+      <!-- Social Links -->
+      <ul class="flex items-center gap-5 text-xl">
+        <li>
+          <a
+            href="https://www.linkedin.com/in/niteshawasthi21"
+            target="_blank"
+            class="text-blue-400 hover:text-blue-300 transition-all duration-300"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/niteshawasthi21"
+            target="_blank"
+            class="text-gray-400 hover:text-white transition-all duration-300"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:tonyawasthi8586@gmail.com"
+            class="text-orange-400 hover:text-orange-300 transition-all duration-300"
+            aria-label="Email"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </header>
 
-  <!-- Intro Section -->
-  <section
-    class="w-full py-8 md:py-12 lg:py-12 xl:py-12 relative bg-gray-900"
-  >
-    <div class="relative z-10 flex flex-col items-center space-y-4 text-center overflow-hidden">
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center relative py-20 px-6 z-10">
+    <!-- Profile Image -->
+    <div
+      class="relative w-40 h-40 rounded-full ring-4 ring-teal-500/40 overflow-hidden shadow-2xl mb-6 hover:scale-105 transition-transform duration-500"
+    >
       <img
         src="assets/Images/nitesh.png"
         alt="Nitesh Awasthi"
-        class="mx-auto mt-4 rounded-full h-32 w-32 object-cover shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        class="w-full h-full object-cover"
       />
-      <div class="space-y-2">
-        <h1
-          class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white"
-        >
-          Nitesh Awasthi
-        </h1>
-        <p
-          class="mx-auto max-w-[700px] text-teal-200 md:text-xl hover:text-white transition-colors duration-300"
-        >
-          &#64;{{ displayText }} | Passionate about building innovative web
-          applications.
-        </p>
-      </div>
-      <div class="flex flex-col md:flex-row items-center md:space-x-4 space-y-2 md:space-y-0">
-        <p class="flex items-center text-white md:text-xl transition-colors duration-300">
-          <i class="fas fa-birthday-cake mr-2"></i> July 19, 2001
-        </p>
-        <p class="flex items-center text-white md:text-xl transition-colors duration-300">
-          <i class="fas fa-map-marker-alt mr-2"></i> Kanpur
-        </p>
-        <p class="flex items-center text-white md:text-xl transition-colors duration-300">
-          <i class="fas fa-envelope mr-2"></i>
-          <a
-            href="mailto:tonyawasthi8586&#64;gmail.com"
-            class="text-white transition-colors duration-300"
-            >tonyawasthi8586&#64;gmail.com</a
-          >
-        </p>
-        <p class="flex items-center text-white md:text-xl transition-colors duration-300">
-          <i class="fas fa-phone mr-2"></i>
-          <a
-            href="tel:7007218523"
-            class="text-white transition-colors duration-300"
-            >7518218586</a
-          >
-        </p>
-        <p class="flex items-center text-white md:text-xl transition-colors duration-300">
-          <i class="fas fa-briefcase mr-2"></i> {{ experienceYears }} Years of Experience
-        </p>
-      </div>
-
-      <div class="space-x-4">
-        <a
-          href="https://github.com/niteshawasthi21"
-          target="_blank"
-          class="inline-flex h-9 items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-900 shadow transition-transform hover:scale-105 hover:bg-teal-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-900"
-        >
-          <i class="fab fa-github mr-2"></i> View Projects
-        </a>
-        <a
-          href="mailto:tonyawasthi8586@gmail.com"
-          class="inline-flex h-9 items-center justify-center rounded-md border border-white bg-transparent px-4 py-2 text-sm font-medium text-white shadow transition-transform hover:scale-105 hover:bg-white hover:text-teal-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-900"
-        >
-          <i class="fas fa-envelope mr-2"></i> Contact Me
-        </a>
-      </div>
-    </div>
-
-    <!-- Background Animation and Overlay -->
-    <div class="absolute inset-0 opacity-30 pointer-events-none animate-pulse">
       <div
-        class="absolute inset-0 bg-[url('https://img.freepik.com/free-vector/abstract-background-with-overlapping-shapes_23-2148995948.jpg?w=1380&t=st=1684605600~exp=1684606200~hmac=d7d7d7d7d7d7d7d7d7d7d7d7d7')] bg-cover bg-center"
-      ></div>
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-teal-900 to-teal-700 mix-blend-multiply"
+        class="absolute inset-0 bg-gradient-to-br from-transparent via-gray-900/30 to-gray-900/70"
       ></div>
     </div>
+
+    <!-- Name -->
+    <h2
+      class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-300 to-blue-500 mb-3"
+    >
+      Nitesh Awasthi
+    </h2>
+
+    <!-- Animated Role -->
+    <p
+      class="text-lg md:text-xl text-teal-300 mb-6 transition-colors duration-300"
+    >
+      {{ displayText }} <span class="text-teal-400">|</span>
+    </p>
+
+    <!-- Info Row -->
+    <div class="flex flex-wrap justify-center gap-4 text-gray-400 text-sm md:text-base mb-10">
+      <span class="flex items-center gap-2">
+        <i class="fas fa-birthday-cake text-orange-400"></i> July 19, 2001
+      </span>
+      <span class="flex items-center gap-2">
+        <i class="fas fa-map-marker-alt text-teal-400"></i> Kanpur, India
+      </span>
+      <span class="flex items-center gap-2">
+        <i class="fas fa-phone text-cyan-400"></i> 7518218586
+      </span>
+      <span class="flex items-center gap-2">
+        <i class="fas fa-briefcase text-yellow-400"></i>
+        {{ experienceYears }}+ Years Experience
+      </span>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+      <a
+        href="https://github.com/niteshawasthi21"
+        target="_blank"
+        class="group inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-cyan-400 text-gray-900 font-semibold px-5 py-2 rounded-full shadow-lg hover:shadow-cyan-500/40 transition-all duration-300"
+      >
+        <i class="fab fa-github group-hover:rotate-12 transition-transform"></i> View Projects
+      </a>
+
+      <a
+        href="mailto:tonyawasthi8586@gmail.com"
+        class="group inline-flex items-center gap-2 border border-teal-400 text-teal-300 px-5 py-2 rounded-full hover:bg-teal-500 hover:text-gray-900 font-semibold transition-all duration-300"
+      >
+        <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i> Contact Me
+      </a>
+    </div>
+
+    <!-- Professional Summary -->
+    <!-- <div
+      class="max-w-3xl text-gray-300 text-base md:text-lg leading-relaxed px-4 md:px-0 border-t border-gray-700 pt-8"
+    >
+      <p class="text-gray-400 italic whitespace-pre-line">
+        {{ professionalSummary }}
+      </p>
+    </div> -->
   </section>
 </main>

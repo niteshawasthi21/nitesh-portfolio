@@ -1,27 +1,12 @@
-  span{
-    width:100px;
-    height:100px;
-    position:absolute;
-    background-size:cover;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    pointer-events:none;
-    animation:animate 6s linear;
-    content:fill-box
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  @keyframes animate{
-    0%{
-      transform: translate(-50%,-50%);
-      opacity: 1;
-      /* filter: hue-rotate(0); */
-    }
-    100%{
-      transform: translate(-50%, -5000%);
-      opacity: 0;
-       /* filter: hue-rotate( 700deg ); */
-    }
+  50% {
+    transform: translateY(-8px);
   }
+}
 
- 
+img:hover {
+  animation: float-slow 3s ease-in-out infinite;
+}
