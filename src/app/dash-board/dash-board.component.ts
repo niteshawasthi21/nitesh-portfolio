@@ -5,6 +5,8 @@ import { MySkillsComponent } from '../components/my-skills/my-skills.component';
 import { MyProjectsComponent } from '../components/my-projects/my-projects.component';
 import { ContactMeComponent } from '../components/contact-me/contact-me.component';
 import { MyExperienceComponent } from '../components/my-experience/my-experience.component';
+import { ACHIEVEMENTS_CONFIG, CERTIFICATIONS_CONFIG, EDUCATION_CONFIG } from '../components/others/other.config';
+import { OthersComponent } from '../components/others/others.component';
 
 @Component({
   selector: 'app-dash-board',
@@ -13,10 +15,18 @@ import { MyExperienceComponent } from '../components/my-experience/my-experience
     HeaderComponent,
     FooterComponent,
     MySkillsComponent,
-    MyProjectsComponent,
-    ContactMeComponent,MyExperienceComponent
+    MyProjectsComponent, 
+    MyExperienceComponent,
+    OthersComponent
   ],
   templateUrl: './dash-board.component.html',
   styleUrl: './dash-board.component.css',
 })
-export class DashBoardComponent {}
+export class DashBoardComponent {
+  achievementsConfig = ACHIEVEMENTS_CONFIG;
+  certificationsConfig = CERTIFICATIONS_CONFIG;
+  educationConfig = EDUCATION_CONFIG;
+}
+
+
+

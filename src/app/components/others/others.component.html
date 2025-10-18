@@ -1,0 +1,109 @@
+<section class="d-flex relative w-full pb-5 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 overflow-hidden">
+    <!-- Background Gradient Orbs -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 opacity-10 rounded-full blur-3xl"
+            [ngClass]="'bg-' + config.themeColor + '-500'"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 opacity-10 rounded-full blur-3xl"
+            [ngClass]="'bg-' + config.themeColor + '-500'"></div>
+    </div>
+
+    <div class="d-flex relative z-10 w-full max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div *ngIf="config.sectionIcon"
+                class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 shadow-lg floating-icon bg-gradient-to-br">
+                <i [class]="config.sectionIcon + ' text-4xl text-white'"></i>
+            </div>
+
+            <h2 *ngIf="config.sectionTitle"
+                class="text-5xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r"
+                [ngClass]="getThemeClasses(config.themeColor).headerGradient">
+                {{ config.sectionTitle }}
+            </h2>
+
+            <p *ngIf="config.sectionDescription" class="text-gray-400 text-lg max-w-2xl mx-auto">
+                {{ config.sectionDescription }}
+            </p>
+        </div>
+
+        <!-- Info Cards -->
+        <ng-container *ngIf="config.data.length > 0; else emptyState">
+            <div class="flex flex-wrap justify-center gap-6">
+                <div *ngFor="let item of config.data"
+                    class="info-card bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-xl border-2 transition-all duration-300 max-w-sm w-full"
+                    [ngClass]="getThemeClasses(config.themeColor).cardBorder">
+                    <!-- Badge -->
+                    <div *ngIf="item.badge"
+                        class="absolute -top-3 -right-3 px-3 py-1.5 rounded-full shadow-lg text-xs font-bold border"
+                        [ngClass]="getThemeClasses(config.themeColor).badgeBg">
+                        {{ item.badge }}
+                    </div>
+
+                    <!-- Card Header -->
+                    <div class="mb-4">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <div *ngIf="item.icon" class="flex items-center gap-3 mb-2">
+                                    <i [class]="item.icon"
+                                        [ngClass]="'text-' + config.themeColor + '-400 text-2xl'"></i>
+                                    <h3 class="text-2xl font-bold text-white">
+                                        {{ item.title }}
+                                    </h3>
+                                </div>
+
+                                <h3 *ngIf="!item.icon && item.title" class="text-2xl font-bold text-white mb-2">
+                                    {{ item.title }}
+                                </h3>
+
+                                <p *ngIf="item.subtitle" class="font-semibold text-lg mb-2 text-gray-300"
+                                    [ngClass]="'text-' + config.themeColor + '-300'">
+                                    {{ item.subtitle }}
+                                </p>
+
+                                <!-- Metadata -->
+                                <div *ngIf="item.institution || item.date || item.location"
+                                    class="space-y-1 text-gray-400 text-sm">
+                                    <div *ngIf="item.institution" class="flex items-center gap-2">
+                                        <i class="fas fa-university"></i>
+                                        <span>{{ item.institution }}</span>
+                                    </div>
+                                    <div *ngIf="item.date" class="flex items-center gap-2">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>{{ item.date }}</span>
+                                    </div>
+                                    <div *ngIf="item.location" class="flex items-center gap-2">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>{{ item.location }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p *ngIf="item.description" class="text-gray-300 text-sm leading-relaxed mb-4">
+                            {{ item.description }}
+                        </p>
+                    </div>
+
+                    <!-- List Items -->
+                    <ul *ngIf="item.items?.length" class="space-y-3 border-t border-gray-700 pt-4">
+                        <li *ngFor="let point of item.items"
+                            class="flex items-start gap-3 text-gray-300 text-sm leading-relaxed">
+                            <i class="fas fa-check-circle text-green-400 mt-0.5"></i>
+                            <span class="hover:text-gray-200 transition-colors duration-300">
+                                {{ point }}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </ng-container>
+
+        <!-- Empty State -->
+        <ng-template #emptyState>
+            <div class="col-span-full text-center py-20">
+                <i class="fas fa-inbox text-6xl text-gray-600 mb-4"></i>
+                <p class="text-gray-400 text-lg">No data available.</p>
+            </div>
+        </ng-template>
+    </div>
+</section>
